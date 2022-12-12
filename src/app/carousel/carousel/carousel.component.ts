@@ -1,54 +1,95 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { slideAnimation } from './slide.animation';
+
 
 @Component({
   selector: 'carousel',
-  animations: [
-    trigger('thumbState', [
-      state('inactive', style({
-        opacity: 0, transform: 'scale(0.5)'
-      })),
-      state('active', style({ 
-        opacity: 1, transform: 'scale(1)'
-      })),
-      // cubic-bezier from http://easings.net/
-      transition('inactive => active', animate('500ms cubic-bezier(0.785, 0.135, 0.15, 0.86)')),
-      transition('active => inactive', animate('500ms cubic-bezier(0.785, 0.135, 0.15, 0.86)'))
-    ])
-  ],
-  styles: [`
-    .tmb img { 
-        width: 300px;
-        margin-left: -150px; 
-    }
-  `],
-  template: `
-      <div [@thumbState]="idx === counter ? 'active' : 'inactive'" class="tmb"
-        *ngFor="let img of images; let idx = index">
-        <img [src]="img" (click)="onClickThumb($event)"/>
-      </div>
-  `
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.css'],
+  animations: [slideAnimation]
 })
-export class CarouselComponent {
-  @Input() images!: Array<string>;
-  @Output() change: EventEmitter<number> = new EventEmitter<number>();
-  counter = 0;
+export class CarouselComponent implements OnInit {
+  currentIndex = 0;
+  @Input() slideFor!: string
+  slides: any = [];
 
-  ngAfterContentInit() {
-    this.change.emit(0); 
+  constructor() {
+    this.preloadImages();
   }
- 
-  onClickThumb(event:any) {
-    const total = this.images.length - 1;
-    this.counter = event.layerX < 150 ? this.dec(total) : this.inc(total);
-    this.change.emit(this.counter);
+  ngOnInit(): void {
+    this.setSlider();
+
   }
 
-  inc(total:number) {
-    return (this.counter < total ) ? this.counter + 1 : 0 ;
+  setSlider() {
+    if (this.slideFor === 'clients') {
+      this.slides = [
+        {
+          src: 'assets/img/client.png'
+        },
+        {
+          src: 'assets/img/client.png'
+        },
+        {
+          src: 'assets/img/client.png'
+        },
+        {
+          src: 'assets/img/client.png'
+        },
+        {
+          src: 'assets/img/client.png'
+        },
+      ];
+    }
+    if (this.slideFor === 'home') {
+      this.slides = [
+        {
+          src: 'assets/img/carousel-1.jpg'
+        },
+        {
+          src: 'assets/img/carousel-2.jpg'
+        },
+        {
+          src: 'assets/img/carousel-1.jpg'
+        },
+        {
+          src: 'assets/img/carousel-2.jpg'
+        },
+        {
+          src: 'assets/img/carousel-1.jpg'
+        },
+        {
+          src: 'assets/img/carousel-2.jpg'
+        },
+
+      ];
+
+    }
   }
 
-  dec(total:number) {
-    return (this.counter > 0 ) ? this.counter - 1 : total ;
+  preloadImages() {
+    this.slides.forEach((slide: any) => {
+      (new Image()).src = slide.image;
+    });
+  }
+
+  setCurrentSlideIndex(index: number) {
+    this.currentIndex = index;
+  }
+
+  isCurrentSlideIndex(index: number) {
+    return this.currentIndex === index;
+  }
+
+  prevSlide() {
+    this.currentIndex = (this.currentIndex < this.slides.length - 1) ? ++this.currentIndex : 0;
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex > 0) ? --this.currentIndex : this.slides.length - 1;
   }
 }
