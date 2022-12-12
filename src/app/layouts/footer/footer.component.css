@@ -1,3 +1,42 @@
+/* HA TESA 
+
+feat fix  .  i tak dalee, dranqel en karevory , vor ov mtni githubd et projecty baci, amen commit asi te inchi hamara
+parza che lriv ? :D HA ES GITEY ED HRAMANNERY BAYC ARANC HASKANAL EM AREL DRANQ ))
+ha normala ))) 
+hima henc uzenas orinak push anes senc es anum 
+1. git add . 
+2.  message (feat.fix.... )
+3. commit button 
+4. push
+
+hima vonc anenq ,, access taas indz qo accountin te vonc ? 
+KARAM TAM BAYC ETE QO GORCERIN CHI XANGARUM NOR VREN KBZBAZAS )
+)ha okay 
+hima mnac et slideri pahhy anenq
+bayc skzbic amenakarevory vor componentneri bajanenqn,, 
+heto djvara linelu,, qani der html css i vra enq kopit asac, heshta linelu ,
+u mekel indz cankalia nerkayacnes baci et slideric el inch petka anel vor haskanam
+structura vonc anel,, functional vonc anel i tak dalee 
+HA CUYC KTAM ....
+vsyo de shat lava,, bayc es esor uje otboy ;d du indz access ktas qo githubn ,, es
+im compov mtnem qo accountov arden kbzbzam,, tenc jisht klini, ,duel qnnutyunnericd shat ches ktrvi ;d 
+ACCSES TALY VORNA KARAM LOGIN PAS TAM PRCENEM MEKA CHM OGTAGORCUM ES 
+Dha henc dra het em eli, log pass tal ;d HA TELEGRAMOV DA KASEM ,,shat lava 
+OKEY DE QEZZZZZZ SHATTTTTTTTTTTTTTTTT SHATTTTTT MERCI charjii ;d ;d du misht karas telegramov gres, audio anes vor mi 
+ban linuma ;d 
+kapi mej linenq vor shut prcnenq  YHN NMANAPES DU EL  
+U MTACI LAVUTYUND POXHATUCELU HAMAR INCH ES UZUM 
+axax, normala ;d 
+NOR TARIA CMER PAPIKIN KASEM KBERI ,DaDxDaxa okay ;d 
+LAV DE ...
+xies keter dnum ? :D VORTEV SHARUNAKEL KARELIA BAYC USHA inch sharunakel ? SHNORHAKALUTYUN ASEL 
+axax, targi ;d  
+vsyo de es tra ;d ;d 
+du log pass ktas HA
+BGushki ;d 
+
+
+*/
 .section_six{
     background-image: url(/assets/img/bg.jpg);
   }
@@ -62,6 +101,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 234px;
+    /* margin: 0px 8px 0px 0px; */
   }
   .links a{
     text-decoration: none;
@@ -74,6 +114,7 @@
   }
   .emailfooter,.signfooter{
     width: 152.36px;
+    /* height: 52px; */
     background-color: white;
     border: none;
     
@@ -116,6 +157,7 @@
   }
   .sl1{
     height: 80px;
+    /* border: 1px solid red; */
     display: flex;
     font-family: "Montserrat",sans-serif;
   }
